@@ -1,0 +1,8 @@
+banana
+melancia
+pessego
+morango
+abacaxi
+manga
+pera
+laranja

@@ -19,7 +19,6 @@ def pede_chute():
     if chute.isdigit()==True:
         print("DIGITE SOMENTE LETRAS")
         chute = pede_chute()
-        
     chute = chute.strip().upper()  
     return chute
 
@@ -30,5 +29,19 @@ def pede_quantidade_de_jogadores():
         num_jogadores =  pede_quantidade_de_jogadores()
     return  int(num_jogadores)
 
-def acertou_palavra():
-    print("PARABENS VC ACERTOU A PALAVRA")
+def pergunta_chute():
+    print("SE VC CHUTAR A PALAVRA E ERRAR PERDERÁ O JOGO")
+    decisao = input("Deseja continuar? S/N ").upper()
+    while decisao!="S" and decisao!="N": 
+        decisao = input("Digite apenas S ou N ").upper()
+    if decisao=="S":
+        return True
+    else:
+        return False
+
+def perdeu_jogo():
+    print("------------------VOCÊ ERROU------------------")
+    print("------------------GAME OVER------------------")
+
+def ganhou_jogo(pessoa):
+    print(f"PARABENS {pessoa['nome']}, você venceu o jogo!")

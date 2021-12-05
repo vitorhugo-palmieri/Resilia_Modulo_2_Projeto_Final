@@ -28,26 +28,34 @@ def jogando(lista_de_jogadores,id_jogador):
         print(letras_acertadas)
         
         chute=message.pede_chute()
-        if chute==jogador_atual["palavra_do_jogo"]:
-            message.acertou_palavra()
-            continua = False
+        if len(chute)>1:
+            decisao=message.pergunta_chute()
+            if decisao:
+                if (chute==jogador_atual["palavra_do_jogo"]):
+                    continua = False
+                    acertou = True
+                else:
+                    continua = False
+                    enforcou =True
+            else:
+                chute=message.pede_chute
         else:
             if(chute in palavra_secreta):
                 marca_chute_correto(chute, letras_acertadas,palavra_secreta,jogador_atual)
-                message.acertou_letra(chute)
-                
+                message.acertou_letra(chute)     
             else:
                 erros = erros+1
                 message.errou_letra()
                 errou_letra = True
-    
-        continua=True
-        acertou = "_" not in letras_acertadas
-        enforcou = erros == 7     
+            continua=True
+            acertou = "_" not in letras_acertadas
+            enforcou = erros == 7     
         
     if acertou:
-        continua=False
+        message.ganhou_jogo(jogador_atual)
+        continua=False  
     elif(enforcou):
+        message.perdeu_jogo()
         continua=False
     
     return continua

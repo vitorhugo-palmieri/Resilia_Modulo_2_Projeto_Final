@@ -19,4 +19,10 @@ while continua:
         id_jogador=0    
     continua=forca.jogando(lista_de_jogadores,id_jogador)
     id_jogador=id_jogador+1
-
+vencedores = 0
+for jogador in lista_de_jogadores:
+    if jogador["ganhou"]:
+        message.apresentacao_vencedores(jogador)
+        vencedores += 1
+if vencedores==0:
+    message.ninguem_venceu()

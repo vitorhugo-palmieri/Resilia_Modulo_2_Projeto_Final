@@ -2,16 +2,17 @@ import random
 import message
 
 def define_jogadores(nome):
+    palavra_e_dica=define_palavra_e_dica()
         
-        return {
-            "nome":nome,
-            "letras_acertadas":[],
-            "letras_erradas":[],
-            "palavra_do_jogo":carrega_palavras_secreta(),
-            "perdeu":False,
-            "ganhou":False,
-            "pontos":100,
-            "posicao": ""
+    return {
+        "nome":nome,
+        "letras_acertadas":[],
+        "letras_erradas":[],
+        "palavra_do_jogo":palavra_e_dica[0],
+        "dica":palavra_e_dica[1],
+        "perdeu":False,
+        "ganhou":False,
+        "pontos":100,
 
         }
 
@@ -25,7 +26,7 @@ def verifica_perdedores(lista_jogadores):
         return False
     else: return True
     
-def jogando(lista_de_jogadores,id_jogador,posicao):
+def jogando(lista_de_jogadores,id_jogador):
     jogador_atual = lista_de_jogadores[id_jogador]
     
 
@@ -83,26 +84,36 @@ def jogando(lista_de_jogadores,id_jogador,posicao):
         if acertou:
             message.acertou_palavra(jogador_atual)
             jogador_atual["ganhou"] = True
-            jogador_atual["posicao"] = posicao 
-            posicao = posicao + 1
+            
         elif(enforcou):
             message.perdeu_jogo()
             jogador_atual["perdeu"] = True
         
     return continua
 
-def carrega_palavras_secreta():
+def carrega_e_sorteia_palavras():
     arquivo=open("palavra.txt","r")
     palavras=[]
     for linha in arquivo:
         linha=linha.strip()
-        palavras.append(linha)
+        palavras.append(linha.upper())
 
     arquivo.close()
     
     numero=random.randrange(0,len(palavras))
-    palavra_secreta=palavras[numero].upper()
+    palavra_secreta=palavras[numero]
     return palavra_secreta
+
+def define_palavra_e_dica():
+    dicionario = {}
+    palavra = carrega_e_sorteia_palavras()
+    cut = palavra.find(";")
+    dica = palavra[cut+1:]
+    palavra = palavra[:cut]
+    dicionario[palavra] = dica
+
+    return palavra,dicionario[palavra]
+
 
 def inicializa_letras_acertadas(jogador_atual):
     if(len(jogador_atual["letras_acertadas"])==0):

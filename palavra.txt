@@ -1,8 +1,12 @@
-banana
-melancia
-pessego
-morango
-abacaxi
-manga
-pera
-laranja
+banana;dica da banana
+melancia;dica da melancia
+pessego;dica do pessego
+morango;diga do morango
+abacaxi;dica do abacaxi
+manga;dica da manga
+pera;dica da pera
+laranja;dica da laranja
+monitor;dica do monitor
+garrafa;dica da garrafa
+papel;dica do papel
+celular;dica do celular

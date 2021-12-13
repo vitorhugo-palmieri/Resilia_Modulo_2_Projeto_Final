@@ -7,24 +7,39 @@ import os
 
 def acertou_letra(chute):
     os.system("cls")
-    print("\n\nAcertou, tem a letra {} na palavra".format(chute))
-    time.sleep(1)
+    print("\n\n\nACERTOU, TEM A LETRA {} NA PALAVRA".format(chute))
+    time.sleep(2)
+    os.system("cls")
 
 def display_jogador(jogador_atual,total_tentativas):
-    print(f"\n\nJogando com {jogador_atual['nome']} ")
-    print(f"\nA palavra tem {len(jogador_atual['palavra_do_jogo'])} letras")
-    print(jogador_atual["palavra_do_jogo"])
+    palavra = jogador_atual["letras_acertadas"]
+    letras_erradas=jogador_atual["letras_erradas"]
+    os.system("cls")
+    print("-------------------------------")
+    print(f"   Jogando com {jogador_atual['nome']}")
+    print("-------------------------------")
+    time.sleep(1)
+    print(f"\nA PALAVRA TEM {len(jogador_atual['palavra_do_jogo'])} LETRAS\n")
+    for l in palavra:
+        print(l,end=" ")
+    print("\n")
     print(jogador_atual["dica"])
-    print(jogador_atual["letras_acertadas"])
-    print('Letras erradas : ',jogador_atual["letras_erradas"])
-    print(f"Voce tem {total_tentativas-len(jogador_atual['letras_erradas'])}, tentativas")
+    print("LETRAS ERRADAS:",end=" ")
+    for le in letras_erradas:
+        print(le,end=" ")
+    print(f"\nTENTATIVAS: {total_tentativas-len(jogador_atual['letras_erradas'])}")
+    # print("-------------------------------------------------------------------------------")
 
 def letra_chute_repetida():
-    print("Voce ja chutou essa letra, escolha outra")
+    # time.sleep(2)
+    os.system("cls")
+    print("\n\n\nVOCÊ JÁ CHUTOU ESSA LETRA, ESCOLHA OUTRA")
+    time.sleep(1.5)
+    os.system("cls")
 
 def errou_letra(jogador,chute):
     os.system("cls")
-    print(f"\n\nVoce errou, não tem {chute} na palavra")
+    print(f"\n\n\nNÃO TEM {chute} NA PALAVRA")
     time.sleep(2)
     os.system("cls")
     jogador['letras_erradas'].append(chute)
@@ -33,13 +48,13 @@ def instrucoes():
     os.system("cls")
     print("\n\n**BEM VINDO AO JOGO DA FORCA MULTIPLAYER***\n")
 
-    print("-----------------------------------------------------------------------------"
+    print("----------------------------------------------------------------------------------------------------"
     "\nINSTRUÇÕES: \n"
     "-ESCOLHA QUANTOS JOGADORES QUISER\n"
     "-CHUTE UMA LETRA, SE ERRAR PERDE A VEZ\n"
     "-CADA JOGADOR TEM 7 CHANCES\n"
     "-VOCÊ PODE CHUTAR A PALAVRA TODA A QUALQUER MOMENTO, MAS SE ERRAR, PERDERÁ TODOS OS PONTOS E O JOGO\n"
-    "----------------------------------------------------------------------------------")
+    "-----------------------------------------------------------------------------------------------------")
     time.sleep(5)
 
 def insere_nome(i):
@@ -60,10 +75,12 @@ def pede_quantidade_de_jogadores():
         num_jogadores =  pede_quantidade_de_jogadores()
     return  int(num_jogadores)
 
-def pergunta_chute():
-    print("\n\n\n--------------------------ATENÇÃO--------------------------------")
-    print("SE VC CHUTAR A PALAVRA E ERRAR, PERDERÁ O JOGO E TODOS SEUS PONTOS")
-    print("------------------------------------------------------------------")
+def pergunta_chute(chute):
+    os.system("cls")
+    print(F"Você digitou a palavra: {chute}")
+    print("\n\n -------------------------------ATENÇÃO-------------------------------")
+    print("  SE VC CHUTAR A PALAVRA E ERRAR, PERDERÁ O JOGO E TODOS SEUS PONTOS   ")
+    print(" ---------------------------------------------------------------------")
     
     decisao = input("Deseja continuar? SIM (S) OU NÃO (N) ").upper()
     while decisao!="S" and decisao!="N": 
@@ -81,10 +98,11 @@ def perdeu_jogo():
 
 def acertou_palavra(pessoa):
     os.system("cls")
-    print(f"\n\nPARABENS {pessoa['nome']}, VOCÊ ACERTOU A PALAVRA")
+    print(f"\n\n\nPARABENS {pessoa['nome']}, VOCÊ ACERTOU A PALAVRA")
     time.sleep(2)
 
 def ninguem_venceu():
+    os.system("cls")
     print("\n\nNENHUM DOS JOGADORES VENCEU!")
     print("--------------------------------------------------------")
 

@@ -51,7 +51,7 @@ def jogando(lista_de_jogadores,id_jogador):
             chute=message.pede_chute()
             #verifica se o usuario quer chutar a palavra toda
             if len(chute)>1:
-                decisao=message.pergunta_chute()
+                decisao=message.pergunta_chute(chute)
                 if decisao:
                     if (chute==jogador_atual["palavra_do_jogo"]):
                         acertou = True

@@ -11,24 +11,74 @@ def acertou_letra(chute):
     time.sleep(2)
     os.system("cls")
 
-def display_jogador(jogador_atual,total_tentativas):
+def display_jogador(jogador_atual,total_tentativas, errado):
+    
     palavra = jogador_atual["letras_acertadas"]
     letras_erradas=jogador_atual["letras_erradas"]
     os.system("cls")
     print("-------------------------------")
     print(f"   Jogando com {jogador_atual['nome']}")
     print("-------------------------------")
-    time.sleep(1)
     print(f"\nA PALAVRA TEM {len(jogador_atual['palavra_do_jogo'])} LETRAS\n")
-    for l in palavra:
-        print(l,end=" ")
-    print("\n")
+    time.sleep(1)
+    
+
+    forca = """
+    ______
+          | 
+          |
+          _
+    """
+    vazio = """ 
+
+
+    """
+    morreu ="""
+        morreu
+    """
+    cabeca ="""
+          O
+    """
+    tronco = """
+          O
+          |
+    """
+    braco_esquerdo = """
+          O
+         /|
+    """
+    braco_direito = """
+          O
+         /|\\
+    """
+    perna_esquerda = """
+          O
+         /|\\
+         /
+    """
+    perna_direita = """
+          O
+         /|\\
+         / \\
+    """
+    chances_boneco = [morreu, perna_direita, perna_esquerda, braco_direito, braco_esquerdo, tronco, cabeca, vazio]
+    
+    
     print(jogador_atual["dica"])
     print("LETRAS ERRADAS:",end=" ")
     for le in letras_erradas:
         print(le,end=" ")
     print(f"\nTENTATIVAS: {total_tentativas-len(jogador_atual['letras_erradas'])}")
+    if errado >= 0:
+        errado = errado-len(jogador_atual['letras_erradas'])
+        print(forca+chances_boneco[errado])
+    for l in palavra:
+        print(l,end=" ")
+    print("\n")  
+    
+    
     # print("-------------------------------------------------------------------------------")
+
 
 def letra_chute_repetida():
     # time.sleep(2)
@@ -38,8 +88,10 @@ def letra_chute_repetida():
     os.system("cls")
 
 def errou_letra(jogador,chute):
+   
     os.system("cls")
     print(f"\n\n\nNÃO TEM {chute} NA PALAVRA")
+
     time.sleep(2)
     os.system("cls")
     jogador['letras_erradas'].append(chute)
@@ -55,7 +107,7 @@ def instrucoes():
     "-CADA JOGADOR TEM 7 CHANCES\n"
     "-VOCÊ PODE CHUTAR A PALAVRA TODA A QUALQUER MOMENTO, MAS SE ERRAR, PERDERÁ TODOS OS PONTOS E O JOGO\n"
     "-----------------------------------------------------------------------------------------------------")
-    time.sleep(5)
+    time.sleep(2)
 
 def insere_nome(i):
     return input(f"Insira o nome do jogador {i+1}: ")

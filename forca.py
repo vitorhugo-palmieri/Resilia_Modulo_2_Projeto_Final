@@ -1,8 +1,8 @@
 import random
 import message
 
-def define_jogadores(nome):
-    palavra_e_dica=define_palavra_e_dica()
+def define_jogadores(nome,palavras_ja_sorteadas):
+    palavra_e_dica=define_palavra_e_dica(palavras_ja_sorteadas)
         
     return {
         "nome":nome,
@@ -91,7 +91,8 @@ def jogando(lista_de_jogadores,id_jogador):
         
     return continua
 
-def carrega_e_sorteia_palavras():
+def carrega_e_sorteia_palavras(palavras_ja_sorteadas):
+    
     arquivo=open("palavra.txt","r")
     palavras=[]
     for linha in arquivo:
@@ -102,18 +103,22 @@ def carrega_e_sorteia_palavras():
     
     numero=random.randrange(0,len(palavras))
     palavra_secreta=palavras[numero]
+    while palavra_secreta in palavras_ja_sorteadas:
+        carrega_e_sorteia_palavras(palavras_ja_sorteadas)
+    palavras_ja_sorteadas.append(palavra_secreta)
+    
     return palavra_secreta
 
-def define_palavra_e_dica():
+def define_palavra_e_dica(palavras_ja_sorteadas):
+    
     dicionario = {}
-    palavra = carrega_e_sorteia_palavras()
+    palavra = carrega_e_sorteia_palavras(palavras_ja_sorteadas)
     cut = palavra.find(";")
     dica = palavra[cut+1:]
     palavra = palavra[:cut]
     dicionario[palavra] = dica
 
     return palavra,dicionario[palavra]
-
 
 def inicializa_letras_acertadas(jogador_atual):
     if(len(jogador_atual["letras_acertadas"])==0):

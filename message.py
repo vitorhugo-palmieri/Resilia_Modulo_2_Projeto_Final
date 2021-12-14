@@ -123,7 +123,6 @@ def define_ranking(lista_de_jogadores):
         p+=1
     print("-------------------------------------------------------")
 
-
 def resultados(lista_de_jogadores):
     vencedores = 0
 

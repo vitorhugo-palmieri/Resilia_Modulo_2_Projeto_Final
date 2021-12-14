@@ -1,12 +1,41 @@
-banana;dica da banana
-melancia;dica da melancia
-pessego;dica do pessego
-morango;diga do morango
-abacaxi;dica do abacaxi
-manga;dica da manga
-pera;dica da pera
-laranja;dica da laranja
-monitor;dica do monitor
-garrafa;dica da garrafa
-papel;dica do papel
-celular;dica do celular
+banana;Dica: macaco ama!
+
+melancia;Dica: fruta da Magali!
+
+pessego;Dica: uma fruta!
+
+chapeu;Dica: usado na cabeca!
+
+equador;Dica: pais da america do sul!
+
+tapete;Dica: fica na frente da porta!
+
+telhado;Dica: toda casa tem!
+
+toalha;Dica: uso depois do banho!
+
+caneta;Dica: tenho no meu estojo!
+
+pudim;Dica: uma sobremesa!
+
+vestido;Dica: vestuario feminio!
+
+sorvete;Dica: otimo no verao!
+
+celular;Dica: todo mundo tem!
+
+pente;Dica: usado no cabelo!
+
+cabide;Dica: usado para pendurar roupa!
+
+pato;Dica: animal com bico e pena!
+
+escada;Dica: subo e desco!
+
+sabonete;Dica: usado no banho!
+
+calendario;Dica: usado para ver os dias!
+
+figado;Dica: orgao humano!
+
+

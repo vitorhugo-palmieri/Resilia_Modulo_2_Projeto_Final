@@ -37,6 +37,7 @@ def jogando(lista_de_jogadores,id_jogador):
         acertou = False
         total_tentativas = 7
         errou_letra = False
+        errado = 7
         
         while (not enforcou and not acertou and not errou_letra):
             palavra_secreta = jogador_atual["palavra_do_jogo"]
@@ -45,7 +46,7 @@ def jogando(lista_de_jogadores,id_jogador):
 
             letras_acertadas = jogador_atual["letras_acertadas"]=inicializa_letras_acertadas(jogador_atual)
 
-            message.display_jogador(jogador_atual,total_tentativas)
+            message.display_jogador(jogador_atual,total_tentativas,errado)
             
             
             chute=message.pede_chute()

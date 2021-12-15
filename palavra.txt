@@ -17,5 +17,4 @@ escada;Dica: subo e desco!
 sabonete;Dica: usado no banho!
 calendario;Dica: usado para ver os dias!
 figado;Dica: orgao humano!
-
-
+violao;Dica: instrumento de corda!

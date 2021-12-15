@@ -1,9 +1,12 @@
+# Jogo da Forca - Trabalho final do segundo módulo da Trilha Resília - Dezembro de 2021
+# Equipe: Luana, Nathalia, Ronaldo Paraski e Vitor Hugo
+# Módulo: Message - Módulo responsável pelos inputs e prints do jogo
+################################################################################################################
+
 
 import time
 import os
 
-# def intro_jogador(jogador_atual):
-    
 
 def acertou_letra(chute):
     os.system("cls")
@@ -14,7 +17,7 @@ def acertou_letra(chute):
 def display_jogador(jogador_atual,total_tentativas, errado):
     
     palavra = jogador_atual["letras_acertadas"]
-    letras_erradas=jogador_atual["letras_erradas"]
+    letras_erradas=jogador_atual["letras_erradas"]  
     os.system("cls")
     print("-------------------------------")
     print(f"   Jogando com {jogador_atual['nome']}")
@@ -79,7 +82,6 @@ def display_jogador(jogador_atual,total_tentativas, errado):
     
     # print("-------------------------------------------------------------------------------")
 
-
 def letra_chute_repetida():
     # time.sleep(2)
     os.system("cls")
@@ -114,7 +116,7 @@ def insere_nome(i):
 
 def pede_chute():
     chute = input("\nDigite uma letra: ")
-    if chute.isdigit()==True:
+    if chute.isdigit():
         print("DIGITE SOMENTE LETRAS")
         chute = pede_chute()
     chute = chute.strip().upper()  

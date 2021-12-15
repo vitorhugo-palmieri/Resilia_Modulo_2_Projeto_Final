@@ -1,3 +1,8 @@
+# Jogo da Forca - Trabalho final do segundo módulo da Trilha Resília - Dezembro de 2021
+# Equipe: Luana, Nathalia, Ronaldo Paraski e Vitor Hugo
+# Módulo: Main - Módulo responsável por por chamar as funções do jogo da forca
+################################################################################################################
+
 import random
 import message
 
@@ -18,10 +23,10 @@ def define_jogadores(nome,palavras_ja_sorteadas):
 
 def verifica_perdedores(lista_jogadores):
     jogando = 0
-    total_jogadores = len(lista_jogadores)
+    # total_jogadores = len(lista_jogadores)
     for jogador in lista_jogadores:
         if not jogador["ganhou"] and not jogador["perdeu"]:
-            jogando = jogando+1
+            jogando =+1
     if jogando == 0:
         return False
     else: return True
@@ -31,6 +36,8 @@ def jogando(lista_de_jogadores,id_jogador):
     
 
     continua = verifica_perdedores(lista_de_jogadores)
+
+    
 
     if not jogador_atual["perdeu"] and not jogador_atual["ganhou"] :
         enforcou = False
@@ -97,7 +104,7 @@ def carrega_e_sorteia_palavras(palavras_ja_sorteadas):
     arquivo=open("palavra.txt","r")
     palavras=[]
     for linha in arquivo:
-        linha=linha.strip()
+        # linha=linha.strip()
         palavras.append(linha.upper())
 
     arquivo.close()
@@ -129,16 +136,10 @@ def inicializa_letras_acertadas(jogador_atual):
 
 def marca_chute_correto(chute, letras_acertadas,palavra,jogador_atual):
     index=0
-    index2=0
     for letra in palavra:
         if(chute==letra):
             letras_acertadas[index]=letra
         index=index+1
     for i in range(len(letras_acertadas)):
         jogador_atual["letras_acertadas"][i]=letras_acertadas[i]
-
-
-
-
-
 
